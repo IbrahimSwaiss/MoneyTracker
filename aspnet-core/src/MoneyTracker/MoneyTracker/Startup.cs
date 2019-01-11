@@ -41,6 +41,6 @@ namespace MoneyTracker {
             app.UseSwaggerUi3WithApiExplorer();
         }
 
-        public IConfigurationRoot Configuration { get; set; }
+        public IConfigurationRoot Configuration { get; }
     }
 }

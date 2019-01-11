@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190109220554_InitializeDB.cs" />
+    <Compile Remove="Migrations\20190109220554_InitializeDB.Designer.cs" />
+    <Compile Remove="Migrations\20190111141122_InitiateDb.cs" />
+    <Compile Remove="Migrations\20190111141122_InitiateDb.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
