@@ -27,17 +27,23 @@ namespace MoneyTracker.Migrations
 
                     b.Property<int>("CreatedBy");
 
-                    b.Property<DateTime>("CreatedOn");
+                    b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("DeletedBy");
+                    b.Property<int?>("DeletedBy");
 
-                    b.Property<DateTime>("DeletedOn");
+                    b.Property<DateTime?>("DeletedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<int>("ModifiedBy");
+                    b.Property<int?>("ModifiedBy");
 
-                    b.Property<DateTime>("ModifiedOn");
+                    b.Property<DateTime?>("ModifiedOn");
 
                     b.Property<decimal>("MonthlyBudget");
 
@@ -68,17 +74,23 @@ namespace MoneyTracker.Migrations
 
                     b.Property<int>("CreatedBy");
 
-                    b.Property<DateTime>("CreatedOn");
+                    b.Property<DateTime>("CreatedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("DeletedBy");
+                    b.Property<int?>("DeletedBy");
 
-                    b.Property<DateTime>("DeletedOn");
+                    b.Property<DateTime?>("DeletedOn")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(false);
 
-                    b.Property<int>("ModifiedBy");
+                    b.Property<int?>("ModifiedBy");
 
-                    b.Property<DateTime>("ModifiedOn");
+                    b.Property<DateTime?>("ModifiedOn");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -96,7 +108,7 @@ namespace MoneyTracker.Migrations
             modelBuilder.Entity("MoneyTracker.Models.Transaction", b =>
                 {
                     b.HasOne("MoneyTracker.Models.Budget")
-                        .WithMany()
+                        .WithMany("Transactions")
                         .HasForeignKey("BudgetId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

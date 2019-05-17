@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MoneyTracker.Interfaces;
+using MoneyTracker.Interfaces.Repositories;
 using MoneyTracker.Presistance;
-using NSwag.AspNetCore;
+using MoneyTracker.Presistance.Repositories;
 
 namespace MoneyTracker {
     public class Startup {
@@ -21,6 +23,8 @@ namespace MoneyTracker {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services) {
+            services.AddScoped<IUoW, UoW>();
+            services.AddScoped<IBudgetRepository, BudgetRepository>();
             services.AddDbContext<MoneyTrackerDbContext>(db => db.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();
             services.AddSwaggerDocument();

@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 using MoneyTracker.Models.BaseEntities;
 
 namespace MoneyTracker.Interfaces.Repositories {
-    public interface IBaseRepository<T> where T : Entity {
-        Task<T> GetById(int id);
-        Task<IList<T>> GetAll();
-        Task Add(T entity);
-        Task Update(T entity);
-        Task Delete(T entity);
+    public interface IBaseRepository<TId, TEntity> where TEntity : Entity<TId> {
+        Task<TEntity> GetById(TId id);
+        Task<IList<TEntity>> GetAll();
+        Task Add(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
     }
 }
