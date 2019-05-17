@@ -8,10 +8,6 @@ namespace MoneyTracker.Models {
         public decimal MonthlyBudget { get; set; }
         public decimal WeeklyBudget { get; set; }
         public decimal MonthlySavingAmount { get; set; }
-        public ICollection<Transaction> Transactions { get; set; }
-
-        public Budget() {
-            Transactions = new Collection<Transaction>();
-        }
+        public short MonthlySavingPercentage { get; set; }
     }
 }

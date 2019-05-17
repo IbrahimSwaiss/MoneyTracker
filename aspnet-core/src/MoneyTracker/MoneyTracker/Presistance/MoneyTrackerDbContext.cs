@@ -5,12 +5,12 @@ using MoneyTracker.Presistance.Configurations;
 namespace MoneyTracker.Presistance {
     public class MoneyTrackerDbContext : DbContext {
         public MoneyTrackerDbContext(DbContextOptions<MoneyTrackerDbContext> options) : base(options) { }
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            //modelBuilder.ApplyConfiguration(new BudgetEntityConfiguration());
-            //modelBuilder.ApplyConfiguration(new TransactionEntityConfiguration());
-        }
+        public DbSet<Budget> Budgets { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
-        //public DbSet<Budget> Budgets { get; set; }
-        //public DbSet<Transaction> Transactions { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.ApplyConfiguration(new BudgetEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionEntityConfiguration());
+        }
     }
 }

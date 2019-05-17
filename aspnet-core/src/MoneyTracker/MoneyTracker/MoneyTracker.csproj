@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20190111141656_InitiateDb.Designer.cs" />
     <Compile Remove="Migrations\20190404203707_AddSeedData.cs" />
     <Compile Remove="Migrations\20190404203707_AddSeedData.Designer.cs" />
+    <Compile Remove="Migrations\20190517125317_AddBudgetsAndTransactionsTables.cs" />
+    <Compile Remove="Migrations\20190517125317_AddBudgetsAndTransactionsTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
