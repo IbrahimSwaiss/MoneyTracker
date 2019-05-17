@@ -2,10 +2,15 @@
 
 namespace MoneyTracker.Controllers {
     [Produces("application/json")]
-    [Route("api/Money")]
+    [Route("api/money")]
     public class MoneyController : Controller {
-        [HttpGet("index")]
-        public string Index(string name) {
+
+        public MoneyController() {
+
+        }
+
+        [HttpGet("add-budget")]
+        public string AddBudget(string name) {
             return $"Welcome {name} to my money application!";
         }
     }
