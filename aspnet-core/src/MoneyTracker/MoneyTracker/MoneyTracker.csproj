@@ -9,19 +9,22 @@
     <Compile Remove="Migrations\20190109220554_InitializeDB.Designer.cs" />
     <Compile Remove="Migrations\20190111141122_InitiateDb.cs" />
     <Compile Remove="Migrations\20190111141122_InitiateDb.Designer.cs" />
+    <Compile Remove="Migrations\20190111141656_InitiateDb.cs" />
+    <Compile Remove="Migrations\20190111141656_InitiateDb.Designer.cs" />
+    <Compile Remove="Migrations\20190404203707_AddSeedData.cs" />
+    <Compile Remove="Migrations\20190404203707_AddSeedData.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1" />
-    <PackageReference Include="NSwag.AspNetCore" Version="12.0.11" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
+    <PackageReference Include="NSwag.AspNetCore" Version="12.2.5" />
   </ItemGroup>
 
 </Project>

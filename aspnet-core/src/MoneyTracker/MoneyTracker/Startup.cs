@@ -23,7 +23,7 @@ namespace MoneyTracker {
         public void ConfigureServices(IServiceCollection services) {
             services.AddDbContext<MoneyTrackerDbContext>(db => db.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();
-            services.AddSwagger();
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,8 +37,8 @@ namespace MoneyTracker {
                     template: "{controller=Home}/{action=Index}/{id?}"
                 );
             });
-            //app.UseSwaggerReDocWithApiExplorer();
-            app.UseSwaggerUi3WithApiExplorer();
+            app.UseSwagger();
+            app.UseSwaggerUi3();
         }
 
         public IConfigurationRoot Configuration { get; }
