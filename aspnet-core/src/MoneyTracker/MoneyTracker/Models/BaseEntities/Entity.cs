@@ -1,7 +1,5 @@
-﻿using MoneyTracker.Models.BaseEntities.Interfaces;
-
-namespace MoneyTracker.Models.BaseEntities {
-    public class Entity<T> : IEntity {
+﻿namespace MoneyTracker.Models.BaseEntities {
+    public class Entity<T> {
         public T Id { get; set; }
     }
 }
