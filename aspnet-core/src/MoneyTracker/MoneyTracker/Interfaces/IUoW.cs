@@ -2,6 +2,6 @@
 
 namespace MoneyTracker.Interfaces {
     public interface IUoW {
-        Task Save();
+        Task Complete();
     }
 }

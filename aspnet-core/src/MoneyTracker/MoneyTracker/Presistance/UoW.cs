@@ -8,7 +8,7 @@ namespace MoneyTracker.Presistance {
         public UoW(MoneyTrackerDbContext context) {
             _context = context;
         }
-        public async Task Save() {
+        public async Task Complete() {
             await _context.SaveChangesAsync();
         }
     }
