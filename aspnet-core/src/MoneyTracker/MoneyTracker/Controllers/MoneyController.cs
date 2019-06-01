@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MoneyTracker.Interfaces;
 using MoneyTracker.Interfaces.Repositories;
 using MoneyTracker.Models;
+using MoneyTracker.Utilities;
 
 namespace MoneyTracker.Controllers {
     [Produces("application/json")]
@@ -19,6 +20,7 @@ namespace MoneyTracker.Controllers {
 
         [HttpGet("add-budget")]
         public async Task AddBudget(Budget budget) {
+            Guard.AssertNotNull(budget);
             await _budgetRepository.Add(budget);
             await _uow.Complete();
         }
