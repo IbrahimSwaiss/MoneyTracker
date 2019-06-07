@@ -12,8 +12,7 @@ namespace MoneyTracker.Controllers {
         private readonly IBudgetRepository _budgetRepository;
         private readonly IUoW _uow;
 
-        public MoneyController(IBudgetRepository budgetRepository, IUoW uow)
-        {
+        public MoneyController(IBudgetRepository budgetRepository, IUoW uow) {
             _budgetRepository = budgetRepository;
             _uow = uow;
         }
@@ -23,6 +22,11 @@ namespace MoneyTracker.Controllers {
             Guard.AssertNotNull(budget);
             await _budgetRepository.Add(budget);
             await _uow.Complete();
+        }
+
+        [HttpGet("get-budget")]
+        public string GetBudget() {
+            return "test api!";
         }
     }
 }

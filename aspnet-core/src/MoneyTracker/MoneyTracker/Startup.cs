@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,6 +12,7 @@ using MoneyTracker.Presistance.Repositories;
 
 namespace MoneyTracker {
     public class Startup {
+        readonly string _enabledSpecificOriginsName = "EnableCORS";
         public Startup(IHostingEnvironment env) {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -26,8 +29,16 @@ namespace MoneyTracker {
             services.AddScoped<IUoW, UoW>();
             services.AddScoped<IBudgetRepository, BudgetRepository>();
             services.AddDbContext<MoneyTrackerDbContext>(db => db.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddMvc();
             services.AddSwaggerDocument();
+            services.AddCors(options => {
+                options.AddPolicy(_enabledSpecificOriginsName, builder => {
+                    builder.WithOrigins(
+                        Configuration["App:AllowedCorsOrigins"]
+                            .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                            .ToArray());
+                });
+            });
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +46,7 @@ namespace MoneyTracker {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
+            app.UseCors(_enabledSpecificOriginsName);
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
