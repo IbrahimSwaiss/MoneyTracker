@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MoneyTracker.Models;
 
-namespace MoneyTracker.Presistance.Configurations {
+namespace MoneyTracker.Persistence.Configurations {
     public class BudgetEntityConfiguration : BaseMoneyTrackerFullAuditedEntityConfigurations<int, Budget> {
         public override void Configure(EntityTypeBuilder<Budget> builder) {
             base.Configure(builder);

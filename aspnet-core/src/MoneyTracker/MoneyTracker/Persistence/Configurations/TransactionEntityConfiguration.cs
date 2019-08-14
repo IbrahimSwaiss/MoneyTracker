@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MoneyTracker.Models;
 
-namespace MoneyTracker.Presistance.Configurations {
+namespace MoneyTracker.Persistence.Configurations {
     public class TransactionEntityConfiguration : BaseMoneyTrackerFullAuditedEntityConfigurations<int, Transaction> {
         public override void Configure(EntityTypeBuilder<Transaction> builder) {
             base.Configure(builder);

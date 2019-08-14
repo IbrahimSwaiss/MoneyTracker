@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MoneyTracker.Models.BaseEntities;
 
-namespace MoneyTracker.Presistance.Configurations {
+namespace MoneyTracker.Persistence.Configurations {
     public class BaseMoneyTrackerEntityConfigurations<TId, TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : Entity<TId> {
         protected const string GetDateSqlMethodName = "GETDATE()";
         public virtual void Configure(EntityTypeBuilder<TEntity> builder) {

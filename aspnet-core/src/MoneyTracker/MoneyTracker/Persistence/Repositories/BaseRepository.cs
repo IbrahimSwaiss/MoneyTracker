@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MoneyTracker.Interfaces.Repositories;
 using MoneyTracker.Models.BaseEntities;
 
-namespace MoneyTracker.Presistance.Repositories {
+namespace MoneyTracker.Persistence.Repositories {
     public class BaseRepository<TId, TEntity> : IBaseRepository<TId, TEntity> where TEntity : Entity<TId> {
         private readonly MoneyTrackerDbContext _context;
 

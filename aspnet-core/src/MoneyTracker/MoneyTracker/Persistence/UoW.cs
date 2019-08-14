@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MoneyTracker.Interfaces;
 
-namespace MoneyTracker.Presistance {
+namespace MoneyTracker.Persistence {
     public class UoW : IUoW {
         private readonly MoneyTrackerDbContext _context;
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MoneyTracker.Interfaces.Repositories;
 using MoneyTracker.Models;
 
-namespace MoneyTracker.Presistance.Repositories {
+namespace MoneyTracker.Persistence.Repositories {
     public class BudgetRepository : BaseRepository<int, Budget>, IBudgetRepository {
         private readonly MoneyTrackerDbContext _context;
 

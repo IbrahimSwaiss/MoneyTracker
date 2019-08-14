@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MoneyTracker.Models;
-using MoneyTracker.Presistance.Configurations;
+using MoneyTracker.Persistence.Configurations;
 
-namespace MoneyTracker.Presistance {
+namespace MoneyTracker.Persistence {
     public class MoneyTrackerDbContext : DbContext {
         public MoneyTrackerDbContext(DbContextOptions<MoneyTrackerDbContext> options) : base(options) { }
         public DbSet<Budget> Budgets { get; set; }

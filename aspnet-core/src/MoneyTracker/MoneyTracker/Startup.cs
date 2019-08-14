@@ -7,8 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoneyTracker.Interfaces;
 using MoneyTracker.Interfaces.Repositories;
-using MoneyTracker.Presistance;
-using MoneyTracker.Presistance.Repositories;
+using MoneyTracker.Persistence;
+using MoneyTracker.Persistence.Repositories;
 
 namespace MoneyTracker {
     public class Startup {
