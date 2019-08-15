@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MoneyServiceProxy } from 'src/shared/service-proxy/service-proxies';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +6,7 @@ import { MoneyServiceProxy } from 'src/shared/service-proxy/service-proxies';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'money-tracker';
-  budgetName: string;
-  constructor(private _moneyService: MoneyServiceProxy) {
-    this.getBudgetName();
+  constructor() {
   }
 
-  getBudgetName() {
-    this._moneyService.getBudget().subscribe(name => {
-      this.budgetName = name;
-    });
-  }
 }

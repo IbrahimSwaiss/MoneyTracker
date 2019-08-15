@@ -7,8 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoneyTracker.Interfaces;
 using MoneyTracker.Interfaces.Repositories;
+using MoneyTracker.Interfaces.Utilities;
 using MoneyTracker.Persistence;
 using MoneyTracker.Persistence.Repositories;
+using MoneyTracker.Utilities;
 
 namespace MoneyTracker {
     public class Startup {
@@ -29,7 +31,11 @@ namespace MoneyTracker {
             services.AddScoped<IUoW, UoW>();
             services.AddScoped<IBudgetRepository, BudgetRepository>();
             services.AddDbContext<MoneyTrackerDbContext>(db => db.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            services.AddSingleton<IClock, Clock>();
+
             services.AddSwaggerDocument();
+
             services.AddCors(options => {
                 options.AddPolicy(_enabledSpecificOriginsName, builder => {
                     builder.WithOrigins(
